@@ -20,7 +20,7 @@ public class EmojiPresenter {
     }
 
     public String processString(List<EmojiResponse> listEmojis, List<String> rawText) {
-        if (listEmojis.size() > 0 && rawText.size() > 0) {
+        if (listEmojis!=null && rawText!=null) {
             String processedText = "";
             for (int i = 0; i < rawText.size(); i++) {
 

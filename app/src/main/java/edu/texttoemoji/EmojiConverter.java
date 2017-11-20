@@ -41,11 +41,21 @@ public class EmojiConverter extends AppCompatEditText implements DashboardView {
     public EmojiConverter(Context context,
                           AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
+        mService = ApiUtils.getSOService();
+        list = new ArrayList<>();
+        makeRequest();
+        emojiPresenter = new EmojiPresenter(this);
     }
 
     public EmojiConverter(Context context,
                           AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.context = context;
+        mService = ApiUtils.getSOService();
+        list = new ArrayList<>();
+        makeRequest();
+        emojiPresenter = new EmojiPresenter(this);
     }
 
     private void makeRequest() {
