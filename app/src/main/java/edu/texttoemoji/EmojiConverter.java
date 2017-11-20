@@ -80,10 +80,9 @@ public class EmojiConverter extends AppCompatEditText implements DashboardView {
         ArrayList<String> rawText = new ArrayList<>();
         word = s.toString().split(" ");
         Collections.addAll(rawText, word);
-        if (list != null) {
             String processedText = emojiPresenter.processString(list, rawText);
             this.setText(processedText);
-        }
+        
 
     }
 
