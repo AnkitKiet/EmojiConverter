@@ -8,6 +8,6 @@ import android.widget.EditText;
 
 public interface DashboardView {
 
-    void convertEmoji();
+    String convertEmoji();
 
 }

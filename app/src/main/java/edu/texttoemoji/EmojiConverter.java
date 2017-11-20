@@ -102,9 +102,9 @@ public class EmojiConverter extends AppCompatEditText implements DashboardView {
 
 
     @Override
-    public void convertEmoji() {
+    public String convertEmoji() {
 
-        this.setText(processedText);
+        return processedText;
 
     }
 
