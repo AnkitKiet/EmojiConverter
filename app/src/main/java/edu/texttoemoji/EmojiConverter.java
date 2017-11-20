@@ -1,7 +1,6 @@
 package edu.texttoemoji;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -21,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EmojiConverter extends AppCompatActivity implements DashboardView {
+public class EmojiConverter implements DashboardView {
 
 
     private SOService mService;
@@ -29,16 +28,14 @@ public class EmojiConverter extends AppCompatActivity implements DashboardView {
     EmojiPresenter emojiPresenter;
     EditText edtRawText;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        edtRawText = (EditText) findViewById(R.id.edtRawText);
+    public EmojiConverter(Context context) {
+        makeRequest();
         mService = ApiUtils.getSOService();
         list = new ArrayList<>();
-        makeRequest();
         emojiPresenter = new EmojiPresenter(this);
+        Toast.makeText(context, "Emoji Converter is Ready", Toast.LENGTH_SHORT).show();
     }
+
 
     private void makeRequest() {
 
@@ -53,7 +50,6 @@ public class EmojiConverter extends AppCompatActivity implements DashboardView {
                 } else {
                     int statusCode = response.code();
                     // handle request errors depending on status code
-                    Toast.makeText(EmojiConverter.this, "Error in Internet", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -68,6 +64,7 @@ public class EmojiConverter extends AppCompatActivity implements DashboardView {
 
     @Override
     public void convertEmoji(final EditText edtRawText) {
+        Log.d("TextConverter","Start");
         edtRawText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -91,7 +88,7 @@ public class EmojiConverter extends AppCompatActivity implements DashboardView {
 
             }
         });
-        
+
     }
 
 
