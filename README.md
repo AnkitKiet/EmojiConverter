@@ -1,5 +1,5 @@
 # EmojiConverter
-This is an Android library used to convert realtime text to Emojis in edittext. This is the most stable version of this library till date. This is under more modifications. Use It For Free.
+This is an Android library used to convert text to Emojis in edittext. This is the most stable version of this library till date. This is under more modifications. Use It For Free.
 
 ## Usage
 Add below code in build.gradle
