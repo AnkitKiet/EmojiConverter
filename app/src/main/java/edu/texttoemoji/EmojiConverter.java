@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,7 +29,7 @@ public class EmojiConverter extends AppCompatEditText implements DashboardView {
     private List<EmojiResponse> list;
     EmojiPresenter emojiPresenter;
     private Context context;
-
+    String processedText;
     public EmojiConverter(Context context) {
         super(context);
         this.context = context;
@@ -83,6 +84,8 @@ public class EmojiConverter extends AppCompatEditText implements DashboardView {
 
     }
 
+
+
     @Override
     protected void onTextChanged(CharSequence s, int start,
                                  int lengthBefore, int lengthAfter) {
@@ -92,38 +95,16 @@ public class EmojiConverter extends AppCompatEditText implements DashboardView {
         Collections.addAll(rawText, word);
 
         if (list != null) {
-            String processedText = emojiPresenter.processString(list, rawText);
-            this.setText(processedText);
+            processedText = emojiPresenter.processString(list, rawText);
         }
 
     }
 
+
     @Override
-    public void convertEmoji(final EditText edtRawText) {
-        Log.d("TextConverter", "Start");
-        edtRawText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+    public void convertEmoji() {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String[] word = null;
-                ArrayList<String> rawText = new ArrayList<>();
-                word = s.toString().split(" ");
-                Collections.addAll(rawText, word);
-                if (list != null) {
-                    String processedText = emojiPresenter.processString(list, rawText);
-                    edtRawText.setText(processedText);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+        this.setText(processedText);
 
     }
 
