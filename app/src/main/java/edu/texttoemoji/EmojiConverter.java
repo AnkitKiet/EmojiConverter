@@ -29,7 +29,7 @@ public class EmojiConverter extends AppCompatEditText implements DashboardView {
     private List<EmojiResponse> list;
     EmojiPresenter emojiPresenter;
     private Context context;
-    String processedText;
+   static String processedText;
     public EmojiConverter(Context context) {
         super(context);
         this.context = context;
