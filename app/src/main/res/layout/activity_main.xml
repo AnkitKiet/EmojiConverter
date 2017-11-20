@@ -3,54 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.texttoemoji.MainActivity">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/colorPrimaryDark">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Text To Emoji Converter"
-            android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
-
-    </android.support.v7.widget.Toolbar>
+    tools:context="edu.texttoemoji.EmojiConverter">
 
 
     <EditText
         android:id="@+id/edtRawText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
         android:layout_marginTop="15dp"
         android:alpha="0.7"
         android:hint="Enter Text"
         android:textColor="@color/colorAccent"
         android:textColorHint="@color/colorAccent"
         android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/txtProcessedText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="5dp"
-        android:hint="Your Text Will Be Displayed Here"
-        android:textSize="16sp" />
-
-    <Button
-        android:id="@+id/btnConvert"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimaryDark"
-        android:text="Share"
-        android:textColor="#ffffff" />
 
 
 </RelativeLayout>
