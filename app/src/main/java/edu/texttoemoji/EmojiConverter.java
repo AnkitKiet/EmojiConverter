@@ -1,12 +1,12 @@
 package edu.texttoemoji;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,26 +21,32 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EmojiConverter extends AppCompatActivity implements DashboardView {
+public class EmojiConverter extends AppCompatEditText implements DashboardView {
 
 
     private SOService mService;
     private List<EmojiResponse> list;
     EmojiPresenter emojiPresenter;
-    EditText edtRawText;
     private Context context;
-    public EmojiConverter() {
-
-    }
 
     public EmojiConverter(Context context) {
-        this.context=context;
+        super(context);
+        this.context = context;
         mService = ApiUtils.getSOService();
         list = new ArrayList<>();
         makeRequest();
         emojiPresenter = new EmojiPresenter(this);
     }
 
+    public EmojiConverter(Context context,
+                          AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public EmojiConverter(Context context,
+                          AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
 
     private void makeRequest() {
 
@@ -68,8 +74,22 @@ public class EmojiConverter extends AppCompatActivity implements DashboardView {
     }
 
     @Override
+    protected void onTextChanged(CharSequence s, int start,
+                                 int lengthBefore, int lengthAfter) {
+        String[] word = null;
+        ArrayList<String> rawText = new ArrayList<>();
+        word = s.toString().split(" ");
+        Collections.addAll(rawText, word);
+        if (list != null) {
+            String processedText = emojiPresenter.processString(list, rawText);
+            this.setText(processedText);
+        }
+
+    }
+
+    @Override
     public void convertEmoji(final EditText edtRawText) {
-        Log.d("TextConverter","Start");
+        Log.d("TextConverter", "Start");
         edtRawText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
