@@ -20,25 +20,29 @@ public class EmojiPresenter {
     }
 
     public String processString(List<EmojiResponse> listEmojis, List<String> rawText) {
+        if (listEmojis.size() > 0 && rawText.size() > 0) {
+            String processedText = "";
+            for (int i = 0; i < rawText.size(); i++) {
 
-        String processedText = "";
-        for (int i = 0; i < rawText.size(); i++) {
+                for (EmojiResponse model : listEmojis) {
+                    String raw = rawText.get(i);
+                    List<String> keywords = model.getKeywords();
+                    if (keywords.contains(raw)) {
+                        rawText.set(i, model.getChar());
+                    }
 
-            for (EmojiResponse model : listEmojis) {
-                String raw = rawText.get(i);
-                List<String> keywords = model.getKeywords();
-                if (keywords.contains(raw)) {
-                                        rawText.set(i, model.getChar());
                 }
 
             }
 
-        }
+            for (String process : rawText) {
+                processedText += (process + " ");
+            }
+            return processedText;
+        }else{
+            return "";
 
-        for (String process : rawText) {
-            processedText+=(process + " ");
         }
-        return processedText;
     }
 
 

@@ -82,7 +82,7 @@ public class EmojiConverter extends AppCompatEditText implements DashboardView {
         Collections.addAll(rawText, word);
             String processedText = emojiPresenter.processString(list, rawText);
             this.setText(processedText);
-        
+
 
     }
 
