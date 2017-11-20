@@ -38,7 +38,7 @@ paste below code in layout xml file.
 ```
 
 
-##License
+## License
 ```
 Copyright 2017 Ankit Maurya
 
