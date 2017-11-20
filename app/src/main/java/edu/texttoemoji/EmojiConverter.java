@@ -1,6 +1,7 @@
 package edu.texttoemoji;
 
 import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -20,18 +21,20 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EmojiConverter implements DashboardView {
+public class EmojiConverter extends AppCompatActivity implements DashboardView {
 
 
     private SOService mService;
     private List<EmojiResponse> list;
     EmojiPresenter emojiPresenter;
     EditText edtRawText;
-
+    private Context context;
     public EmojiConverter() {
+
     }
 
     public EmojiConverter(Context context) {
+        this.context=context;
         mService = ApiUtils.getSOService();
         list = new ArrayList<>();
         makeRequest();
