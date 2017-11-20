@@ -29,9 +29,9 @@ public class EmojiConverter implements DashboardView {
     EditText edtRawText;
 
     public EmojiConverter(Context context) {
-        makeRequest();
         mService = ApiUtils.getSOService();
         list = new ArrayList<>();
+        makeRequest();
         emojiPresenter = new EmojiPresenter(this);
         Toast.makeText(context, "Emoji Converter is Ready", Toast.LENGTH_SHORT).show();
     }
