@@ -67,32 +67,31 @@ public class EmojiConverter extends AppCompatActivity implements DashboardView {
     }
 
     @Override
-    public void convertEmoji(final EditText edtRawText, String rawText) {
-        if (list != null) {
-            edtRawText.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+    public void convertEmoji(final EditText edtRawText) {
+        edtRawText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                }
+            }
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    String[] word = null;
-                    ArrayList<String> rawText = new ArrayList<>();
-                    word = s.toString().split(" ");
-                    Collections.addAll(rawText, word);
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String[] word = null;
+                ArrayList<String> rawText = new ArrayList<>();
+                word = s.toString().split(" ");
+                Collections.addAll(rawText, word);
+                if (list != null) {
                     String processedText = emojiPresenter.processString(list, rawText);
                     edtRawText.setText(processedText);
                 }
+            }
 
-                @Override
-                public void afterTextChanged(Editable s) {
+            @Override
+            public void afterTextChanged(Editable s) {
 
-                }
-            });
-        } else {
-            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
-        }
+            }
+        });
+        
     }
 
 
