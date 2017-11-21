@@ -1,7 +1,8 @@
 # EmojiConverter
 This is an Android library used to convert text to Emojis in edittext. This is the most stable version of this library till date. This is under more modifications. Use It For Free.
 
-## Usage
+## Installation
+### Gradle
 Add below code in build.gradle
 ```
 allprojects {
@@ -15,6 +16,25 @@ Add a dependency
 dependencies {
 	compile 'com.github.AnkitKiet:EmojiConverter:1.14'
 	}
+```
+
+### Maven
+Add below code for Maven installation
+```
+<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+Add a dependency
+```
+<dependency>
+	    <groupId>com.github.User</groupId>
+	    <artifactId>Repo</artifactId>
+	    <version>Tag</version>
+	</dependency>
 ```
 
 ## How To Use
