@@ -23,7 +23,8 @@ dependencies {
 paste below code in java file
 
 ```
-        final EmojiConverter emojiConverter=new EmojiConverter(MainActivity.this);
+        EmojiConverter edt = (EmojiConverter) findViewById (R.id.edt);
+        final EmojiConverter emojiConverter=new EmojiConverter(MainActivity.this);
   	editText.setText(emojiConverter.convertEmoji());
 
 ```
