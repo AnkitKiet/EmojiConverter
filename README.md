@@ -42,9 +42,9 @@ Add a dependency
 paste below code in java file
 
 ```
-        EmojiConverter edt = (EmojiConverter) findViewById (R.id.edtRawText);
+        EmojiConverter edt = (EmojiConverter) findViewById (R.id.edtRawText); //Try not adding Textwatcher on this
         final EmojiConverter emojiConverter=new EmojiConverter(MainActivity.this);
-  	editText.setText(emojiConverter.convertEmoji());
+  	editText.setText(emojiConverter.convertEmoji()); //use this on an event, like a button click
 
 ```
 paste below code in layout xml file.
