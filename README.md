@@ -1,21 +1,40 @@
 # EmojiConverter
 This is an Android library used to convert text to Emojis in edittext. This is the most stable version of this library till date. This is under more modifications. Use It For Free.
 
-## Usage
+## Installation
+### Gradle
 Add below code in build.gradle
 ```
 allprojects {
-		repositories {
-			
-			maven { url 'https://jitpack.io' }
+	repositories {
+		maven { url 'https://jitpack.io' }
 		}
 	}
 ```
 Add a dependency
 ```
 dependencies {
-	        compile 'com.github.AnkitKiet:EmojiConverter:1.14'
+	compile 'com.github.AnkitKiet:EmojiConverter:1.14'
 	}
+```
+
+### Maven
+Add below code for Maven installation
+```
+<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+Add a dependency
+```
+<dependency>
+	    <groupId>com.github.User</groupId>
+	    <artifactId>Repo</artifactId>
+	    <version>Tag</version>
+	</dependency>
 ```
 
 ## How To Use
@@ -23,8 +42,9 @@ dependencies {
 paste below code in java file
 
 ```
-        final EmojiConverter emojiConverter=new EmojiConverter(MainActivity.this);
-  	editText.setText(emojiConverter.convertEmoji());
+        EmojiConverter edt = (EmojiConverter) findViewById (R.id.edtRawText); //Try not adding Textwatcher on this
+        final EmojiConverter emojiConverter=new EmojiConverter(MainActivity.this);
+  	editText.setText(emojiConverter.convertEmoji()); //use this on an event, like a button click
 
 ```
 paste below code in layout xml file.
