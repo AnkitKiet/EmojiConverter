@@ -34,10 +34,11 @@ Add below code for Maven installation
 Add a dependency
 ```
 <dependency>
-	    <groupId>com.github.User</groupId>
-	    <artifactId>Repo</artifactId>
-	    <version>Tag</version>
+	    <groupId>com.github.AnkitKiet</groupId>
+	    <artifactId>EmojiCOnverter</artifactId>
+	    <version>1.15</version>
 	</dependency>
+
 ```
 
 ## How To Use
